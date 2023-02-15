@@ -1,6 +1,7 @@
 // Display today's day and date
-var todayDate = moment().format('dddd, MMM Do YYYY');
-$("#currentDay").html(todayDate);
+import moment from 'moment';
+
+$("todaysDate").html(moment().format("dddd, MMMM Do YYYY, h:mm:ss a"));
 
 $(document).ready(function () {
     // saveBtn click listener 
@@ -11,8 +12,8 @@ $(document).ready(function () {
 
         // Save text in local storage
         localStorage.setItem(time, text);
-    })
-   
+    });
+
     function timeTracker() {
         //get current number of hours.
         var timeNow = moment().hour();
@@ -38,7 +39,7 @@ $(document).ready(function () {
                 $(this).addClass("future");
 
             }
-        })
+        });
     }
 
     // Get item from local storage if any
@@ -54,4 +55,4 @@ $(document).ready(function () {
     $("#hour 14 .description").val(localStorage.getItem("hour 14"));
 
     timeTracker();
-})
+});
